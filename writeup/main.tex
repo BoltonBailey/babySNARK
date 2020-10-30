@@ -164,7 +164,7 @@ First, we show that we can express constraints such that an element $a$ in the s
 \]
 implies $(2a-1) \in \{-1,1\}$, which implies $a \in \{0,1\}$. Next, observe that if $a$,$b$,$c$ are all constrained to lie in $\{0,1\}$, then we can express $c = \neg (a \land b) = \textsf{NAND}(a,b)$ as
  \[
-    (2 a + 2 b -5c + 4)^2 = 1.
+    (2 a + 2 b + 4c - 5)^2 = 1.
  \]
 Putting these together as an example, a square constraint program including the above wires and gates would take the form
  \[
@@ -172,7 +172,7 @@ Putting these together as an example, a square constraint program including the 
     -1 & 2 & & &  \\
     -1 &  & 2 & & \dots \\
     -1 &  & & 2 &  \\
-     4 & 2 & 2 & -5 &  \\
+    -5 & 2 & 2 & 4 &  \\
     \vdots & & & & \ddots\\
     \end{bmatrix} \cdot
       \begin{bmatrix}
@@ -189,7 +189,7 @@ While $\textsf{NAND}$ gates alone suffice to show that any Boolean circuit can b
 So far we've described a constraint system in terms of matrix multiplication.
 For the SNARK protocol, we need to translate this problem into one about polynomials.
 %
-To start, we treat the columns of $U$ as poynomials in the evaluation representation.
+To start, we treat the columns of $U$ as polynomials in the evaluation representation.
 More specifically, let $u_0(X),u_1(X),...,u_{n-1}(X)$ be the degree $m-1$ polynomials defined through interpolation using each column of $U$, such that
     $$u_i(r_j)=U_{j,i}.$$
 Then we have that (\ref{eqn:ua2}) is equivalent to the following:
